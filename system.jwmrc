@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <JWM>
 
-<StartupCommand>pcmanfm --desktop</StartupCommand>
-<StartupCommand>compton</StartupCommand>
+<Include>$HOME/.config/jwm/startup.conf</Include>
 
     <!-- The root menu. -->
     <RootMenu onroot="12">
@@ -11,8 +10,7 @@
 	<Include>/etc/jwm/debian-menu</Include>
 	<Separator/>
         <Program icon="terminal.png" label="Terminal">sakura</Program>
-  
-	<Separator/>        
+        <Separator/>        
 	<Program icon="lock.png" label="Lock">
             xlock -mode blank
         </Program>
@@ -40,7 +38,7 @@
     </Group>
 
     <!-- Tray at the bottom. -->
-    <Tray x="0" y="-1" height="25" autohide="off">
+    <Tray x="0" y="-1" height="40" autohide="off">
 
         <TrayButton icon="/usr/share/jwm/jwm-red.svg">root:1</TrayButton>
         <Spacer width="2"/>
@@ -120,55 +118,7 @@
          IconPath can be listed multiple times to allow searching
          for icons in multiple paths.
       -->
-    <IconPath>/usr/share/icons/gnome/256x256/actions</IconPath>
-    <IconPath>/usr/share/icons/gnome/256x256/apps</IconPath>
-    <IconPath>/usr/share/icons/gnome/256x256/categories</IconPath>
-    <IconPath>/usr/share/icons/gnome/256x256/devices</IconPath>
-    <IconPath>/usr/share/icons/gnome/256x256/emblems</IconPath>
-    <IconPath>/usr/share/icons/gnome/256x256/mimetypes</IconPath>
-    <IconPath>/usr/share/icons/gnome/256x256/places</IconPath>
-    <IconPath>/usr/share/icons/gnome/256x256/status</IconPath>
-    <IconPath>/usr/share/icons/gnome/32x32/actions</IconPath>
-    <IconPath>/usr/share/icons/gnome/32x32/animations</IconPath>
-    <IconPath>/usr/share/icons/gnome/32x32/apps</IconPath>
-    <IconPath>/usr/share/icons/gnome/32x32/categories</IconPath>
-    <IconPath>/usr/share/icons/gnome/32x32/devices</IconPath>
-    <IconPath>/usr/share/icons/gnome/32x32/emblems</IconPath>
-    <IconPath>/usr/share/icons/gnome/32x32/mimetypes</IconPath>
-    <IconPath>/usr/share/icons/gnome/32x32/places</IconPath>
-    <IconPath>/usr/share/icons/gnome/32x32/status</IconPath>
-    <IconPath>/usr/share/icons/gnome/scalable/actions</IconPath>
-    <IconPath>/usr/share/icons/gnome/scalable/apps</IconPath>
-    <IconPath>/usr/share/icons/gnome/scalable/categories</IconPath>
-    <IconPath>/usr/share/icons/gnome/scalable/devices</IconPath>
-    <IconPath>/usr/share/icons/gnome/scalable/emblems</IconPath>
-    <IconPath>/usr/share/icons/gnome/scalable/mimetypes</IconPath>
-    <IconPath>/usr/share/icons/gnome/scalable/places</IconPath>
-    <IconPath>/usr/share/icons/gnome/scalable/status</IconPath>
-    <IconPath>/usr/share/icons/hicolor/256x256/apps</IconPath>
-    <IconPath>/usr/share/icons/hicolor/256x256/mimetypes</IconPath>
-    <IconPath>/usr/share/icons/hicolor/32x32/actions</IconPath>
-    <IconPath>/usr/share/icons/hicolor/32x32/apps</IconPath>
-    <IconPath>/usr/share/icons/hicolor/32x32/categories</IconPath>
-    <IconPath>/usr/share/icons/hicolor/32x32/devices</IconPath>
-    <IconPath>/usr/share/icons/hicolor/32x32/emblems</IconPath>
-    <IconPath>/usr/share/icons/hicolor/32x32/mimetypes</IconPath>
-    <IconPath>/usr/share/icons/hicolor/32x32/status</IconPath>
-    <IconPath>/usr/share/icons/hicolor/512x512/apps</IconPath>
-    <IconPath>/usr/share/icons/hicolor/512x512/mimetypes</IconPath>
-    <IconPath>/usr/share/icons/hicolor/scalable/actions</IconPath>
-    <IconPath>/usr/share/icons/hicolor/scalable/apps</IconPath>
-    <IconPath>/usr/share/icons/hicolor/scalable/categories</IconPath>
-    <IconPath>/usr/share/icons/hicolor/scalable/devices</IconPath>
-    <IconPath>/usr/share/icons/hicolor/scalable/emblems</IconPath>
-    <IconPath>/usr/share/icons/hicolor/scalable/mimetypes</IconPath>
-    <IconPath>/usr/share/icons/hicolor/scalable/places</IconPath>
-    <IconPath>/usr/share/icons/hicolor/scalable/status</IconPath>
-    <IconPath>/usr/share/icons</IconPath>
-    <IconPath>/usr/share/pixmaps</IconPath>
-    <IconPath>
-        /usr/local/share/jwm
-    </IconPath>
+<Include>$HOME/.config/jwm/icons.conf<Include>
 
     <!-- Virtual Desktops -->
     <!-- Desktop tags can be contained within Desktops for desktop names. -->

@@ -1,0 +1,52 @@
+' Do not choke on GTK commands
+OPTION PARSE FALSE
+
+' Using GTK3
+PRAGMA INCLUDE <gtk/gtk.h>
+PRAGMA OPTIONS `pkg-config --cflags gtk+-3.0`
+PRAGMA LDFLAGS `pkg-config --libs gtk+-3.0`
+
+' Using libwebkit2
+PRAGMA INCLUDE <webkit2/webkit2.h>
+PRAGMA OPTIONS `pkg-config --cflags webkit2gtk-4.0`
+PRAGMA LDFLAGS `pkg-config --libs webkit2gtk-4.0`
+
+' When pressing <enter> go to the URL
+SUB Goto_Url
+
+	LOCAL link$
+
+	link$ = gtk_entry_get_text(GTK_ENTRY(url))
+	IF LEFT$(link$, 4) <> "https" THEN link$ = "https://" & link$
+	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(html), link$)
+
+ENDSUB
+
+' Initialize GTK
+gtk_init(0, 0)
+
+' Create main window
+window = gtk_window_new(0)
+gtk_window_set_title(GTK_WINDOW(window), "Minimal Web Browser in BASIC")
+gtk_window_set_default_size(GTK_WINDOW(window), 1280, 800)
+gtk_window_set_icon_name(GTK_WINDOW(window), "gtk-network")
+g_signal_connect_data(GTK_WIDGET(window), "delete-event", G_CALLBACK(exit), 0, 0, 0)
+
+url_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0)
+
+' Create entry to enter URL
+url = gtk_entry_new()
+gtk_box_pack_start(GTK_BOX(url_box), GTK_WIDGET(url), 0, 0, 1)
+g_signal_connect_data(GTK_ENTRY(url), "activate", Goto_Url, 0, 0, 0)
+
+' Create HTML renderer
+html = webkit_web_view_new()
+gtk_box_pack_start(GTK_BOX(url_box), GTK_WIDGET(html), 1, 1, 1)
+
+' Load basicprogramming by default
+webkit_web_view_load_uri(WEBKIT_WEB_VIEW(html), "https://www.basic-converter.org")
+
+' Pack everything together and wait for event
+gtk_container_add(GTK_CONTAINER(window), GTK_WIDGET(url_box))
+gtk_widget_show_all(GTK_WIDGET(window))
+gtk_main()
