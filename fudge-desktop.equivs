@@ -10,7 +10,7 @@ Package: fudge-desktop
 # Version: <enter version here; defaults to 1.0>
 Maintainer: "Joonas Sandelin" <daconstantinos@gmail.com>
 # Pre-Depends: <comma-separated list of packages>
-Depends: fudge-icon-theme,jwm,mjwm,pcmanfm,mousepad,firefox,pulseaudio,pavucontrol,sxiv,dbus-x11,compton,sakura
+Depends: fudge-icon-theme,jwm,mjwm,pcmanfm,mousepad,firefox,pulseaudio,pavucontrol,sxiv,dbus-x11,libgd-tools,compton,sakura
 # Recommends: <comma-separated list of packages>
 # Suggests: <comma-separated list of packages>
 Provides: x-window-manager
