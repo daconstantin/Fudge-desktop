@@ -1,0 +1,25 @@
+#!/bin/bash
+# 
+# Filename:script_template
+# 
+# Description: This is a template for shell scripts that are
+# designed to be recursively endlessly extendable. If you want
+# to add functionality, just remove everything between Begin 
+# and End comments. Write your script and add .pre or .post
+# to the filename of the new script.
+#   
+# Don't edit this file if you don't know what you are doing.
+# This script sources .pre_thisfile and .post_thisfile if they exist.
+# 
+# these files can be edited to provide additional functionality, 
+# and created if they don't exist.
+
+## Parse commandline args here before the source statement!
+
+source pre_thisfile
+
+#Write rest of your script between Main and End comments
+#Main 
+
+#End
+source post_thisfile
